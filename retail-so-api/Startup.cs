@@ -29,10 +29,13 @@ namespace retail_so_api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<OrderDBContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("AXLiveConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
             services.AddDbContext<LoginDBContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("AXLiveConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddDbContext<ImageDBContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
             services.AddCors();
 

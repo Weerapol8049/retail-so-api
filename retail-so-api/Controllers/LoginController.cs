@@ -26,18 +26,17 @@ namespace retail_so_api.Controllers
         [HttpGet("{user}/{password}")]
 
         public IEnumerable<Login> GetLogin(string user, string password)
-
         {
             var userParm = new SqlParameter("@u",user);
-            var pwdParm = new SqlParameter("@p", password);
+            var pwdParm = new SqlParameter("@p", password.ToString());
 
             return _context.Login.FromSql(@"DECLARE @UserName VARCHAR(50) SET @UserName = @u
-                                                DECLARE @Password VARCHAR(50) SET @Password = @p
+                                            DECLARE @Password VARCHAR(50) SET @Password = @p
 
                                                 IF (@UserName = 'admin' and @Password = '_admin123')
                                                 BEGIN
                                                  SELECT 
-                                                  0 as RECID
+                                                  CONVERT(bigint,0) as RECID
                                                   ,'Admin' as [Name]
                                                   ,'_admin123' as [Password]
                                                   ,0 as [Type]

@@ -23,5 +23,6 @@ namespace retail_so_api.Models
         public DbSet<Model> Models { get; set; }
 
         public DbSet<Store> Stores { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

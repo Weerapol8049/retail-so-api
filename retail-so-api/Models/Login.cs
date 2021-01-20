@@ -9,7 +9,7 @@ namespace retail_so_api.Models
     public class Login
     {
         [Key]
-        public int RecId { get; set; }
+        public Int64 RecId { get; set; }
 
         public string Name { get; set; }
         public string Password { get; set; }
